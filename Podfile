@@ -2,7 +2,6 @@
 platform :ios, '8.1'
 
 target 'Breadcrumbs' do
-    pod 'GoogleMaps'
 end
 
 target 'BreadcrumbsTests' do
