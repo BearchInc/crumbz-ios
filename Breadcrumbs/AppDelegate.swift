@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import MapKit
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        return true
+        PFUser.registerSubclass()
+        Crumb.registerSubclass()
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("KQQSFqPW3GgHekWc8Mf0M5cELUduk6xPn8j6RZa3", clientKey: "8RJ4MVg6fS5P3lC6RZbxVqfU4nKA5bn5rbVuqZeY")
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        let user = User()
+        user.name = "LOL"
+        user.username = "borges"
+        user.password = "my-secret"
+        
+        if let user = User.logInWithUsername(user.username!, password: user.password!) {
+            UIAlertView(title: "Welcome!", message: "Welcome back to crumbz \(user.username!)!", delegate: nil, cancelButtonTitle: "Thanks!").show()
+            return true
+        }
+        
+        if user.signUp() {
+            UIAlertView(title: "Log In", message: "Welcome \(user.username!)! Check out our guide so you can take advantage of the cool features of crumbz?", delegate: nil, cancelButtonTitle: "Will do! :~").show()
+            return true
+        }
+        
+        UIAlertView(title: "Sign Up", message: "Sign up failed for user \(user.username!)", delegate: nil, cancelButtonTitle: "Ok").show()
+        return false
     }
 
     func applicationWillResignActive(application: UIApplication) {
