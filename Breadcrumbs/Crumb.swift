@@ -57,9 +57,6 @@ class User : PFUser, PFSubclassing {
     typealias TrailsBlock = (trails : [Trail]?, error : NSError?) -> Void
     
     @NSManaged var name : String
-    @NSManaged var myTrails : [Trail]
-    @NSManaged var completedTrails : [Trail]
-    @NSManaged var followingTrails : [Trail]
     
     func fetchMyTrailsWithBlock(block : TrailsBlock) {
         PFQuery(className: Trail.parseClassName()).whereKey("owner", equalTo: self).findObjectsInBackgroundWithBlock {

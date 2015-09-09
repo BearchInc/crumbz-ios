@@ -20,34 +20,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    var locationManager = CLLocationManager() {
-        didSet {
-            locationManager.delegate = self
-        }
-    }
-    
-    class func handleParseError(error: NSError) {
-        if error.domain != PFParseErrorDomain {
-            return
-        }
-        
-        println("error \(error.code)")
-        handleInvalidSessionTokenError()
-    }
-    
-    private class func handleInvalidSessionTokenError() {
-        if let user = User.currentUser() {
-            User.logOutInBackgroundWithBlock {
-                if let error = $0 {
-                    UIAlertView(title: "Log out", message: "Failed logging out...", delegate: nil, cancelButtonTitle: "Ok").show()
-                    println("Log out failed: \(error)")
-                    return
-                }
-                
-                User.logInWithUsername(user.username!, password: user.password!)
-            }
-        }
-    }
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,23 +50,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             crumb.message = "Big LOL it works!"
             crumb.saveEventually { saved, error in
                 if !saved {
-                    ViewController.handleParseError(error!)
+                    println("Failed saving crumbz: \(error)")
                     return
                 }
                 
-                println("crumb: \(crumb.objectId)")
-                println("trail: \(trail.objectId)")
                 trail.fetchCrumbsWithBlock {
                     let total = $0.crumbs?.count
                     println("Total trail crumbs: \(total!)")
                 }
             }
             
-            user.fetchIfNeeded()
-            
-            println("user name: \(user.name)")
-            println("Logged in as \(user.username)")
-            println("session token: \(user.sessionToken)")
             user.fetchMyTrailsWithBlock {
                 let total = $0.trails?.count
                 println("total user created trails: \(total!)")
