@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364E19801BA0DB09007F881F /* FrutigerLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 364E197C1BA0DB09007F881F /* FrutigerLTStd-Bold.otf */; };
+		364E19811BA0DB09007F881F /* FrutigerLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 364E197D1BA0DB09007F881F /* FrutigerLTStd-Light.otf */; };
+		364E19821BA0DB09007F881F /* FrutigerLTStd-LightCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 364E197E1BA0DB09007F881F /* FrutigerLTStd-LightCn.otf */; };
+		364E19831BA0DB09007F881F /* FrutigerLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 364E197F1BA0DB09007F881F /* FrutigerLTStd-Roman.otf */; };
 		367562651B9F77FF00189248 /* Crumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367562641B9F77FF00189248 /* Crumb.swift */; };
 		36E99DDF1B9798BC008347CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99DDE1B9798BC008347CC /* AppDelegate.swift */; };
 		36E99DE11B9798BC008347CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99DE01B9798BC008347CC /* ViewController.swift */; };
@@ -32,6 +36,10 @@
 /* Begin PBXFileReference section */
 		10063EA1933AD1E59B93F0EC /* Pods-Breadcrumbs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breadcrumbs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breadcrumbs/Pods-Breadcrumbs.release.xcconfig"; sourceTree = "<group>"; };
 		2D298B3D31F34D255ADD2A38 /* Pods-Breadcrumbs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breadcrumbs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breadcrumbs/Pods-Breadcrumbs.debug.xcconfig"; sourceTree = "<group>"; };
+		364E197C1BA0DB09007F881F /* FrutigerLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-Bold.otf"; sourceTree = "<group>"; };
+		364E197D1BA0DB09007F881F /* FrutigerLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-Light.otf"; sourceTree = "<group>"; };
+		364E197E1BA0DB09007F881F /* FrutigerLTStd-LightCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-LightCn.otf"; sourceTree = "<group>"; };
+		364E197F1BA0DB09007F881F /* FrutigerLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-Roman.otf"; sourceTree = "<group>"; };
 		367562641B9F77FF00189248 /* Crumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crumb.swift; sourceTree = "<group>"; };
 		367562661BA05D0A00189248 /* Breadcrumbs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Breadcrumbs-Bridging-Header.h"; sourceTree = "<group>"; };
 		36E99DD91B9798BC008347CC /* Breadcrumbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breadcrumbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364E197B1BA0DB09007F881F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				364E197C1BA0DB09007F881F /* FrutigerLTStd-Bold.otf */,
+				364E197D1BA0DB09007F881F /* FrutigerLTStd-Light.otf */,
+				364E197E1BA0DB09007F881F /* FrutigerLTStd-LightCn.otf */,
+				364E197F1BA0DB09007F881F /* FrutigerLTStd-Roman.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		3675625F1B9F5FF200189248 /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +135,7 @@
 		36E99DDC1B9798BC008347CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				364E197B1BA0DB09007F881F /* Fonts */,
 				36E99DDD1B9798BC008347CC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -238,11 +258,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364E19801BA0DB09007F881F /* FrutigerLTStd-Bold.otf in Resources */,
+				364E19821BA0DB09007F881F /* FrutigerLTStd-LightCn.otf in Resources */,
 				36FFB6E31B988FD00020ED80 /* .gitignore in Resources */,
+				364E19811BA0DB09007F881F /* FrutigerLTStd-Light.otf in Resources */,
 				36E99DE41B9798BC008347CC /* Main.storyboard in Resources */,
 				36E99DE91B9798BC008347CC /* LaunchScreen.xib in Resources */,
 				36E99DFF1B9799D6008347CC /* Podfile in Resources */,
 				36E99DE61B9798BC008347CC /* Images.xcassets in Resources */,
+				364E19831BA0DB09007F881F /* FrutigerLTStd-Roman.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,27 @@
 import Parse
+import MapKit
 import Foundation
+import CoreLocation
 
-class Crumb : PFObject, PFSubclassing {
+class Crumb : PFObject, PFSubclassing, MKAnnotation {
     @NSManaged var owner : User
     @NSManaged var trail : Trail
     @NSManaged var location : PFGeoPoint
     @NSManaged var message : String
     
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
+    var coordinate : CLLocationCoordinate2D {
+        get {
+            return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
+        
+        set {
+            location = PFGeoPoint(latitude: newValue.latitude, longitude: newValue.longitude)
         }
     }
+    
+    var title : String { return message }
+    
+    var subtitle : String { return owner.username! }
     
     static func parseClassName() -> String {
         return "Crumb"
@@ -32,19 +39,11 @@ class Trail : PFObject, PFSubclassing {
     @NSManaged var type : TrailType
     
     func fetchCrumbsWithBlock(block : CrumbsBlock) {
-        PFQuery(className: Crumb.parseClassName()).whereKey("trail", equalTo: self).findObjectsInBackgroundWithBlock {
+        Crumb.query()!.whereKey("trail", equalTo: self).findObjectsInBackgroundWithBlock {
             if let data = $0.0 {
+                println("count: \(data.count)")
                 block(crumbs: data as? [Crumb], error: nil)
             }
-        }
-    }
-    
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
         }
     }
     
@@ -56,22 +55,13 @@ class Trail : PFObject, PFSubclassing {
 class User : PFUser, PFSubclassing {
     typealias TrailsBlock = (trails : [Trail]?, error : NSError?) -> Void
     
-    @NSManaged var name : String
+    @NSManaged var tagline : String
     
     func fetchMyTrailsWithBlock(block : TrailsBlock) {
-        PFQuery(className: Trail.parseClassName()).whereKey("owner", equalTo: self).findObjectsInBackgroundWithBlock {
+        Trail.query()!.whereKey("owner", equalTo: self).findObjectsInBackgroundWithBlock {
             if let data = $0.0 {
                 block(trails: data as? [Trail], error: nil)
             }
-        }
-    }
-    
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
         }
     }
 }

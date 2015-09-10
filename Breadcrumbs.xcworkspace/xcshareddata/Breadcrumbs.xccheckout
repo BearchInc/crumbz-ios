@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>497224E9-3FD4-4A05-8182-13AB6742B4AF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Breadcrumbs</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6AEA53E310D878378680B1859B71C84BAFCF8F29</key>
+		<string>github.com:BearchInc/crumbz-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Breadcrumbs.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6AEA53E310D878378680B1859B71C84BAFCF8F29</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:BearchInc/crumbz-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6AEA53E310D878378680B1859B71C84BAFCF8F29</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6AEA53E310D878378680B1859B71C84BAFCF8F29</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Breadcrumbs</string>
+		</dict>
+	</array>
+</dict>
+</plist>

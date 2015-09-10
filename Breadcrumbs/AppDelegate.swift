@@ -17,16 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        PFUser.registerSubclass()
+        User.registerSubclass()
         Crumb.registerSubclass()
+        Trail.registerSubclass()
+        
         Parse.enableLocalDatastore()
         Parse.setApplicationId("KQQSFqPW3GgHekWc8Mf0M5cELUduk6xPn8j6RZa3", clientKey: "8RJ4MVg6fS5P3lC6RZbxVqfU4nKA5bn5rbVuqZeY")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         let user = User()
-        user.name = "LOL"
-        user.username = "borges"
-        user.password = "my-secret"
+        user.username = "Diego"
+        user.password = "test123"
         
         if let user = User.logInWithUsername(user.username!, password: user.password!) {
             UIAlertView(title: "Welcome!", message: "Welcome back to crumbz \(user.username!)!", delegate: nil, cancelButtonTitle: "Thanks!").show()
