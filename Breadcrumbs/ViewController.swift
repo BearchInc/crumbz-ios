@@ -8,6 +8,21 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     let eiffelTowerLocation = CLLocation(latitude: 48.85815, longitude: 2.29452)
     
     @IBOutlet weak var myTrailsCount: UILabel!
+    @IBOutlet weak var scoresView: UIView! {
+        didSet {
+            scoresView.layer.shadowColor = UIColor.blackColor().CGColor
+            scoresView.layer.shadowOffset = CGSizeZero
+            scoresView.layer.shadowOpacity = 0.5
+        }
+    }
+    
+    @IBOutlet weak var locationView: UIView! {
+        didSet {
+            locationView.layer.shadowColor = UIColor.blackColor().CGColor
+            locationView.layer.shadowOffset = CGSizeZero
+            locationView.layer.shadowOpacity = 0.5
+        }
+    }
     
     @IBOutlet weak var currentLat: UILabel! {
         didSet {
@@ -74,6 +89,21 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 }
             }
         }
+    }
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if !(annotation is Crumb) { return nil }
+        
+        let identifier = "Crumb"
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        
+        if annotationView == nil {
+            annotationView = UIView.fromNib(asType: CrumbAnnotationView.self)!
+        } else {
+            annotationView.annotation = annotation
+        }
+        
+        return annotationView
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {

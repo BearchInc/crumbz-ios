@@ -65,8 +65,8 @@
                                     <constraint firstAttribute="centerY" secondItem="bYz-uy-krT" secondAttribute="centerY" id="paf-LY-rSv"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPo-N2-s8K" userLabel="Location">
-                                <rect key="frame" x="16" y="507" width="568" height="35"/>
+                            <view alpha="0.69999998807907104" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPo-N2-s8K" userLabel="Location">
+                                <rect key="frame" x="18" y="504" width="568" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lat:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgM-oC-Q2l">
                                         <rect key="frame" x="8" y="7" width="25" height="21"/>
@@ -140,8 +140,10 @@
                     <connections>
                         <outlet property="currentLat" destination="EOL-1D-Usc" id="8hF-bC-OSe"/>
                         <outlet property="currentLng" destination="bCl-fK-ZH9" id="Zl1-wh-cZF"/>
+                        <outlet property="locationView" destination="oPo-N2-s8K" id="88Y-65-ekF"/>
                         <outlet property="mapView" destination="q77-VU-xlG" id="NPa-K1-LHT"/>
                         <outlet property="myTrailsCount" destination="bYe-i5-2Fb" id="HOf-74-5bL"/>
+                        <outlet property="scoresView" destination="GJq-q5-045" id="eMY-wm-ooU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
