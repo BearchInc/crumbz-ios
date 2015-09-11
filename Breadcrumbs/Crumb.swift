@@ -17,7 +17,7 @@ class Crumb : PFObject, PFSubclassing {
 extension Crumb : MKAnnotation {
     var title : String { return message }
     var subtitle : String { return owner.username! }
-    var coordinate : CLLocationCoordinate2D {
+    dynamic var coordinate : CLLocationCoordinate2D {
         get {
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
