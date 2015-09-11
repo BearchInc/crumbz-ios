@@ -39,7 +39,7 @@ class Trail : PFObject, PFSubclassing {
     @NSManaged var type : TrailType
     
     func fetchCrumbsWithBlock(block : CrumbsBlock) {
-        Crumb.query()!.whereKey("trail", equalTo: self).findObjectsInBackgroundWithBlock {
+        Crumb.query()!.whereKey("trail", equalTo: self).orderByAscending("createdAt").findObjectsInBackgroundWithBlock {
             if let data = $0.0 {
                 println("count: \(data.count)")
                 block(crumbs: data as? [Crumb], error: nil)
