@@ -14,4 +14,14 @@ extension MKMapView {
         let swMapPoint = MKMapPointMake(mRect.origin.x, MKMapRectGetMaxY(mRect))
         return MKCoordinateForMapPoint(swMapPoint).toPFGeoPoint()
     }
+    
+    func removeNonVisibleAnnotations() {
+        for obj in self.annotations {
+            let annotation = obj as! MKAnnotation
+            let point = self.convertCoordinate(annotation.coordinate, toPointToView: self)
+            if !self.annotationVisibleRect.contains(point) {
+                self.removeAnnotation(annotation)
+            }
+        }
+    }
 }

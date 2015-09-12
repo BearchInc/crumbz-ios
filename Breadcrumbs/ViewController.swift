@@ -100,22 +100,27 @@ extension ViewController : MKMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
         
         if annotationView == nil {
-            annotationView = UIView.fromNib(asType: CrumbAnnotationView.self)!
+            annotationView = UIView.fromNib(asType: CrumbView.self)!
         } else {
             annotationView.annotation = annotation
         }
         
         return annotationView
     }
-    
-    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
-        for obj in mapView.annotations {
-            let annotation = obj as! MKAnnotation
-            let point = mapView.convertCoordinate(annotation.coordinate, toPointToView: mapView)
-            if !mapView.annotationVisibleRect.contains(point) {
-                mapView.removeAnnotation(annotation)
+
+    // Fade in crumbs when added to the map
+    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
+        let annotationViews = views as! [UIView]
+        for view in annotationViews {
+            view.alpha = 0.0
+            UIView.animateWithDuration(0.5) {
+                view.alpha = 1
             }
         }
+    }
+    
+    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+        mapView.removeNonVisibleAnnotations()
         
         Crumb.fetchCrumbsWithinRegionFromSouthwest(mapView.southwestGeoPoint(), toNortheast: mapView.northeastGeoPoint()) {
             self.plottedCrumbs = $0.crumbs

@@ -1,7 +1,8 @@
 import UIKit
 import MapKit
 
-class CrumbAnnotationView : MKAnnotationView {
+class CrumbView : MKAnnotationView {
+    
     @IBOutlet weak var imageView: UIImageView!
     
     override var annotation: MKAnnotation! {
