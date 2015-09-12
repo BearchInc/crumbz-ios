@@ -13,15 +13,4 @@ class User : PFUser, PFSubclassing {
     @NSManaged var tagline : String
     @NSManaged var myTrails : [Trail]
     @NSManaged var collectedCrumbs : [Crumb]
-    
-    func fetchCrumbsNearby(block : CrumbsBlock) {
-        let nearbyCrumbsQuery = Crumb.query()!.includeKey("owner").includeKey("trail").whereKey("location", nearGeoPoint: location.toPFGeoPoint(), withinKilometers: UserRange)
-        nearbyCrumbsQuery.findObjectsInBackgroundWithBlock {
-            if let crumbs = $0.0 as? [Crumb] {
-                block(crumbs: crumbs, error: nil)
-            } else {
-                block(crumbs: [Crumb](), error: $0.1)
-            }
-        }
-    }
 }

@@ -14,6 +14,19 @@ class Crumb : PFObject, PFSubclassing {
     }
 }
 
+extension Crumb {
+    class func fetchCrumbsWithinRegionFromSouthwest(southwest: PFGeoPoint, toNortheast northeast: PFGeoPoint,  block : CrumbsBlock) {
+        let nearbyCrumbsQuery = Crumb.query()!.includeKey("owner").includeKey("trail").whereKey("location", withinGeoBoxFromSouthwest: southwest, toNortheast: northeast)
+        nearbyCrumbsQuery.findObjectsInBackgroundWithBlock {
+            if let crumbs = $0.0 as? [Crumb] {
+                block(crumbs: crumbs, error: nil)
+            } else {
+                block(crumbs: [Crumb](), error: $0.1)
+            }
+        }
+    }
+}
+
 extension Crumb : MKAnnotation {
     var title : String { return message }
     var subtitle : String { return owner.username! }

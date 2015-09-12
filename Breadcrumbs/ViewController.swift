@@ -3,9 +3,21 @@ import Parse
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController {
+    
+    var plottedCrumbs = [Crumb]()
     
     let eiffelTowerLocation = CLLocation(latitude: 48.85815, longitude: 2.29452)
+    
+    lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        return manager
+    }()
+    
+    lazy var currentUser : User? = {
+       return User.currentUser()
+    }()
     
     @IBOutlet weak var myTrailsCount: UILabel!
     @IBOutlet weak var scoresView: UIView! {
@@ -52,12 +64,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        return manager
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,7 +75,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             locationManager.startUpdatingLocation()
         }
        
-        if let user = User.currentUser() {
+        if let user = currentUser {
             if !user.isAuthenticated() {
                 UIAlertView(title: "Session", message: "Session is no longer active", delegate: nil, cancelButtonTitle: "Ok").show()
                 return
@@ -77,11 +83,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             
             user.location = locationManager.location
             myTrailsCount.text = "\(user.myTrails.count)"
-            user.fetchCrumbsNearby {
+            Crumb.fetchCrumbsWithinRegionFromSouthwest(mapView.southwestGeoPoint(), toNortheast: mapView.northeastGeoPoint()) {
+                self.plottedCrumbs = $0.crumbs
                 self.mapView.addAnnotations($0.crumbs)
             }
         }
     }
+}
+
+extension ViewController : MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if !(annotation is Crumb) { return nil }
@@ -98,6 +108,24 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         return annotationView
     }
     
+    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+        for obj in mapView.annotations {
+            let annotation = obj as! MKAnnotation
+            let point = mapView.convertCoordinate(annotation.coordinate, toPointToView: mapView)
+            if !mapView.annotationVisibleRect.contains(point) {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+        
+        Crumb.fetchCrumbsWithinRegionFromSouthwest(mapView.southwestGeoPoint(), toNortheast: mapView.northeastGeoPoint()) {
+            self.plottedCrumbs = $0.crumbs
+            self.mapView.addAnnotations($0.crumbs)
+        }
+    }
+}
+
+extension ViewController : CLLocationManagerDelegate {
+
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         println("Auth status changed to \(status)")
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
