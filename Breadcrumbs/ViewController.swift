@@ -75,18 +75,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 return
             }
             
-            user.fetchMyTrailsWithBlock {
-                if let trails = $0.trails {
-                    self.myTrailsCount.text = "\(trails.count)"
-                    for trail in trails {
-                        trail.fetchCrumbsWithBlock {
-                            if let crumbs = $0.crumbs {
-                                println("crumbz count: \(crumbs.count)")
-                                self.mapView.addAnnotations(crumbs)
-                            }
-                        }
-                    }
-                }
+            user.location = locationManager.location
+            myTrailsCount.text = "\(user.myTrails.count)"
+            user.fetchCrumbsNearby {
+                self.mapView.addAnnotations($0.crumbs)
             }
         }
     }

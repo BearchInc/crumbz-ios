@@ -16,6 +16,7 @@
 		364E19891BA3016F007F881F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E19881BA3016F007F881F /* User.swift */; };
 		364E198B1BA30416007F881F /* CrumbAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E198A1BA30416007F881F /* CrumbAnnotationView.swift */; };
 		364E198E1BA31738007F881F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E198D1BA31738007F881F /* UIView.swift */; };
+		364E19901BA36B57007F881F /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E198F1BA36B57007F881F /* CLLocation.swift */; };
 		367562651B9F77FF00189248 /* Crumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367562641B9F77FF00189248 /* Crumb.swift */; };
 		36E99DDF1B9798BC008347CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99DDE1B9798BC008347CC /* AppDelegate.swift */; };
 		36E99DE11B9798BC008347CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99DE01B9798BC008347CC /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		364E19881BA3016F007F881F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		364E198A1BA30416007F881F /* CrumbAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrumbAnnotationView.swift; sourceTree = "<group>"; };
 		364E198D1BA31738007F881F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		364E198F1BA36B57007F881F /* CLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
 		367562641B9F77FF00189248 /* Crumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crumb.swift; sourceTree = "<group>"; };
 		367562661BA05D0A00189248 /* Breadcrumbs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Breadcrumbs-Bridging-Header.h"; sourceTree = "<group>"; };
 		36E99DD91B9798BC008347CC /* Breadcrumbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breadcrumbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				364E198D1BA31738007F881F /* UIView.swift */,
+				364E198F1BA36B57007F881F /* CLLocation.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				364E198B1BA30416007F881F /* CrumbAnnotationView.swift in Sources */,
 				367562651B9F77FF00189248 /* Crumb.swift in Sources */,
 				36E99DE11B9798BC008347CC /* ViewController.swift in Sources */,
+				364E19901BA36B57007F881F /* CLLocation.swift in Sources */,
 				364E198E1BA31738007F881F /* UIView.swift in Sources */,
 				364E19871BA300BB007F881F /* Trail.swift in Sources */,
 				364E19891BA3016F007F881F /* User.swift in Sources */,
