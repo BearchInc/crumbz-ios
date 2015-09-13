@@ -94,18 +94,45 @@ class ViewController: UIViewController {
 extension ViewController : MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        if !(annotation is Crumb) { return nil }
-        
-        let identifier = "Crumb"
-        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
-        
-        if annotationView == nil {
-            annotationView = UIView.fromNib(asType: CrumbView.self)!
-        } else {
-            annotationView.annotation = annotation
+        if let crumb = annotation as? Crumb {
+            
+            if currentUser!.owns(crumb) {
+                let identifier = "MyCrumb"
+                var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                
+                if annotationView == nil {
+                    annotationView = UIView.fromNib(asType: MyCrumbView.self)!
+                } else {
+                    annotationView.annotation = crumb
+                }
+                
+                return annotationView
+                
+            } else if currentUser!.didCollect(crumb) {
+                let identifier = "CollectedCrumb"
+                var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                
+                if annotationView == nil {
+                    annotationView = UIView.fromNib(asType: CollectedCrumbView.self)!
+                } else {
+                    annotationView.annotation = crumb
+                }
+                
+                return annotationView
+            } else {
+                let identifier = "Crumb"
+                var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                
+                if annotationView == nil {
+                    annotationView = UIView.fromNib(asType: CrumbView.self)!
+                } else {
+                    annotationView.annotation = crumb
+                }
+                
+                return annotationView
+            }
         }
-        
-        return annotationView
+        return nil
     }
 
     // Fade in crumbs when added to the map

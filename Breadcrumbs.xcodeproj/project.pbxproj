@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363BE2C71BA4C1A300C1B705 /* CollectedCrumbView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363BE2C61BA4C1A300C1B705 /* CollectedCrumbView.xib */; };
+		363BE2C91BA4C21C00C1B705 /* CollectedCrumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BE2C81BA4C21C00C1B705 /* CollectedCrumbView.swift */; };
+		363BE2CB1BA4CCBD00C1B705 /* MyCrumbView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363BE2CA1BA4CCBD00C1B705 /* MyCrumbView.xib */; };
+		363BE2CD1BA4CD1100C1B705 /* MyCrumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BE2CC1BA4CD1100C1B705 /* MyCrumbView.swift */; };
 		364E19801BA0DB09007F881F /* FrutigerLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 364E197C1BA0DB09007F881F /* FrutigerLTStd-Bold.otf */; };
 		364E19811BA0DB09007F881F /* FrutigerLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 364E197D1BA0DB09007F881F /* FrutigerLTStd-Light.otf */; };
 		364E19821BA0DB09007F881F /* FrutigerLTStd-LightCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 364E197E1BA0DB09007F881F /* FrutigerLTStd-LightCn.otf */; };
@@ -44,6 +48,10 @@
 /* Begin PBXFileReference section */
 		10063EA1933AD1E59B93F0EC /* Pods-Breadcrumbs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breadcrumbs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breadcrumbs/Pods-Breadcrumbs.release.xcconfig"; sourceTree = "<group>"; };
 		2D298B3D31F34D255ADD2A38 /* Pods-Breadcrumbs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breadcrumbs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breadcrumbs/Pods-Breadcrumbs.debug.xcconfig"; sourceTree = "<group>"; };
+		363BE2C61BA4C1A300C1B705 /* CollectedCrumbView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectedCrumbView.xib; sourceTree = "<group>"; };
+		363BE2C81BA4C21C00C1B705 /* CollectedCrumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectedCrumbView.swift; sourceTree = "<group>"; };
+		363BE2CA1BA4CCBD00C1B705 /* MyCrumbView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCrumbView.xib; sourceTree = "<group>"; };
+		363BE2CC1BA4CD1100C1B705 /* MyCrumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCrumbView.swift; sourceTree = "<group>"; };
 		364E197C1BA0DB09007F881F /* FrutigerLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-Bold.otf"; sourceTree = "<group>"; };
 		364E197D1BA0DB09007F881F /* FrutigerLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-Light.otf"; sourceTree = "<group>"; };
 		364E197E1BA0DB09007F881F /* FrutigerLTStd-LightCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-LightCn.otf"; sourceTree = "<group>"; };
@@ -119,6 +127,10 @@
 			children = (
 				364E198A1BA30416007F881F /* CrumbView.swift */,
 				364E19841BA2FDBD007F881F /* CrumbView.xib */,
+				363BE2C61BA4C1A300C1B705 /* CollectedCrumbView.xib */,
+				363BE2C81BA4C21C00C1B705 /* CollectedCrumbView.swift */,
+				363BE2CA1BA4CCBD00C1B705 /* MyCrumbView.xib */,
+				363BE2CC1BA4CD1100C1B705 /* MyCrumbView.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -303,6 +315,8 @@
 				36FFB6E31B988FD00020ED80 /* .gitignore in Resources */,
 				364E19811BA0DB09007F881F /* FrutigerLTStd-Light.otf in Resources */,
 				36E99DE41B9798BC008347CC /* Main.storyboard in Resources */,
+				363BE2C71BA4C1A300C1B705 /* CollectedCrumbView.xib in Resources */,
+				363BE2CB1BA4CCBD00C1B705 /* MyCrumbView.xib in Resources */,
 				36E99DE91B9798BC008347CC /* LaunchScreen.xib in Resources */,
 				36E99DFF1B9799D6008347CC /* Podfile in Resources */,
 				364E19851BA2FDBD007F881F /* CrumbView.xib in Resources */,
@@ -379,9 +393,11 @@
 				36E99DE11B9798BC008347CC /* ViewController.swift in Sources */,
 				364E19901BA36B57007F881F /* CLLocation.swift in Sources */,
 				364E198E1BA31738007F881F /* UIView.swift in Sources */,
+				363BE2C91BA4C21C00C1B705 /* CollectedCrumbView.swift in Sources */,
 				364E19871BA300BB007F881F /* Trail.swift in Sources */,
 				364E19891BA3016F007F881F /* User.swift in Sources */,
 				36E99DDF1B9798BC008347CC /* AppDelegate.swift in Sources */,
+				363BE2CD1BA4CD1100C1B705 /* MyCrumbView.swift in Sources */,
 				364E19941BA49E76007F881F /* MKMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

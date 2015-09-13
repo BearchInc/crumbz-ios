@@ -12,6 +12,14 @@ class Crumb : PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "Crumb"
     }
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let crumb = object as? Crumb {
+            if self.objectId == crumb.objectId { return true }
+        }
+        
+        return false
+    }
 }
 
 extension Crumb {

@@ -13,4 +13,14 @@ class User : PFUser, PFSubclassing {
     @NSManaged var tagline : String
     @NSManaged var myTrails : [Trail]
     @NSManaged var collectedCrumbs : [Crumb]
+    
+    func didCollect(crumb: Crumb) -> Bool {
+        return !(collectedCrumbs.filter {
+            return $0.isEqual(crumb)
+        }.isEmpty)
+    }
+    
+    func owns(crumb: Crumb) -> Bool {
+        return crumb.owner.objectId == self.objectId
+    }
 }
