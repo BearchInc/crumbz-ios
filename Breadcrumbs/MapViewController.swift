@@ -3,21 +3,11 @@ import Parse
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class MapViewController: UserLocatableViewController {
     
     var plottedCrumbs = [Crumb]()
     
     let eiffelTowerLocation = CLLocation(latitude: 48.85815, longitude: 2.29452)
-    
-    lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        return manager
-    }()
-    
-    lazy var currentUser : User? = {
-       return User.currentUser()
-    }()
     
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -38,14 +28,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestAlwaysAuthorization()
-        }
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        }
-       
         if let user = currentUser {
             if !user.isAuthenticated() {
                 UIAlertView(title: "Session", message: "Session is no longer active", delegate: nil, cancelButtonTitle: "Ok").show()
@@ -75,7 +57,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : MKMapViewDelegate {
+extension MapViewController : MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if let crumb = annotation as? Crumb {
@@ -147,19 +129,3 @@ extension ViewController : MKMapViewDelegate {
         }
     }
 }
-
-extension ViewController : CLLocationManagerDelegate {
-
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        println("Auth status changed to \(status)")
-        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
-            locationManager.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateLocations entries: [AnyObject]!) {
-        let locations = entries as! [CLLocation]
-        println("####### last updated location: \(locations.last)")
-    }
-}
-

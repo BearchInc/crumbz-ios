@@ -29,12 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         user.password = "test123"
         
         if let user = User.logInWithUsername(user.username!, password: user.password!) {
-            UIAlertView(title: "Welcome!", message: "Welcome back to crumbz \(user.username!)!", delegate: nil, cancelButtonTitle: "Thanks!").show()
+//            UIAlertView(title: "Welcome!", message: "Welcome back to crumbz \(user.username!)!", delegate: nil, cancelButtonTitle: "Thanks!").show()
             return true
         }
         
         if user.signUp() {
-            UIAlertView(title: "Log In", message: "Welcome \(user.username!)! Check out our guide so you can take advantage of the cool features of crumbz?", delegate: nil, cancelButtonTitle: "Will do! :~").show()
+//            alert.show()
+//            UIAlertView(title: "Log In", message: "Welcome \(user.username!)! Check out our guide so you can take advantage of the cool features of crumbz?", delegate: nil, cancelButtonTitle: "Will do! :~").show()
             return true
         }
         

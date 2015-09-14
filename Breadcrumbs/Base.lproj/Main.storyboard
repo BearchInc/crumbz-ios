@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Breadcrumbs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Breadcrumbs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -31,6 +31,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapNewCrumbButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fe8-g6-MiS"/>
+                                    <segue destination="x5p-z3-yYV" kind="show" id="OVH-aD-cax"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,6 +45,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="01p-aa-cwl" secondAttribute="bottom" constant="8" id="l7l-uL-4yA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="je0-1O-w2Q"/>
                     <connections>
                         <outlet property="mapView" destination="q77-VU-xlG" id="NPa-K1-LHT"/>
                         <outlet property="newCrumbButton" destination="01p-aa-cwl" id="WZx-e5-rAw"/>
@@ -51,6 +53,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="57" y="297"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mUs-C1-MhZ">
+            <objects>
+                <navigationController modalPresentationStyle="formSheet" id="x5p-z3-yYV" sceneMemberID="viewController">
+                    <value key="contentSizeForViewInPopover" type="size" width="550" height="300"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="INO-5v-9e5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CaS-Jd-WhQ" kind="relationship" relationship="rootViewController" id="gaL-zt-6EC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHW-4S-zy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="297"/>
+        </scene>
+        <!--New Crumb-->
+        <scene sceneID="eWr-zA-R6w">
+            <objects>
+                <viewController id="CaS-Jd-WhQ" customClass="NewCrumbViewController" customModule="Breadcrumbs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yei-ho-4wB"/>
+                        <viewControllerLayoutGuide type="bottom" id="ada-2E-CWq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jIU-l0-zwm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gk5-3J-6ln">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqE-R2-Ypd">
+                                <rect key="frame" x="0.0" y="64" width="600" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="M4E-6y-6hy"/>
+                                    <constraint firstAttribute="width" constant="600" id="uge-l4-1lc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardType="twitter" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" calendarEvent="YES"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ari-r0-QNG" userLabel="Horizontal Separator">
+                                <rect key="frame" x="0.0" y="192" width="600" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="AYZ-Vy-5XT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iqE-R2-Ypd" firstAttribute="leading" secondItem="jIU-l0-zwm" secondAttribute="leadingMargin" constant="-16" id="38q-J1-kwp"/>
+                            <constraint firstItem="ari-r0-QNG" firstAttribute="top" secondItem="iqE-R2-Ypd" secondAttribute="bottom" id="4W7-z7-JPJ"/>
+                            <constraint firstItem="iqE-R2-Ypd" firstAttribute="top" secondItem="Yei-ho-4wB" secondAttribute="bottom" id="5to-fX-TOe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ari-r0-QNG" secondAttribute="trailing" constant="-16" id="Fyx-bT-p6L"/>
+                            <constraint firstItem="ari-r0-QNG" firstAttribute="leading" secondItem="jIU-l0-zwm" secondAttribute="leadingMargin" constant="-16" id="Qk7-xs-AuX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iqE-R2-Ypd" secondAttribute="trailing" constant="-16" id="rGK-dR-PNE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Crumb" id="pqE-zD-wI3">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="fbh-ij-gr1">
+                            <connections>
+                                <action selector="didTapCancelButton:" destination="CaS-Jd-WhQ" id="wUi-Dx-JhY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="L1Z-24-0lH">
+                            <connections>
+                                <action selector="didTapAddButton:" destination="CaS-Jd-WhQ" id="UIZ-Oe-Gpc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextView" destination="iqE-R2-Ypd" id="cWP-al-jRU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oTP-Bn-q4l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="297"/>
         </scene>
     </scenes>
     <resources>
