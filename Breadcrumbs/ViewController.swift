@@ -19,35 +19,6 @@ class ViewController: UIViewController {
        return User.currentUser()
     }()
     
-    @IBOutlet weak var myTrailsCount: UILabel!
-    @IBOutlet weak var scoresView: UIView! {
-        didSet {
-            scoresView.layer.shadowColor = UIColor.blackColor().CGColor
-            scoresView.layer.shadowOffset = CGSizeZero
-            scoresView.layer.shadowOpacity = 0.5
-        }
-    }
-    
-    @IBOutlet weak var locationView: UIView! {
-        didSet {
-            locationView.layer.shadowColor = UIColor.blackColor().CGColor
-            locationView.layer.shadowOffset = CGSizeZero
-            locationView.layer.shadowOpacity = 0.5
-        }
-    }
-    
-    @IBOutlet weak var currentLat: UILabel! {
-        didSet {
-            currentLat.text = "\(locationManager.location.coordinate.latitude)"
-        }
-    }
-    
-    @IBOutlet weak var currentLng: UILabel! {
-        didSet {
-            currentLng.text = "\(locationManager.location.coordinate.longitude)"
-        }
-    }
-    
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
             mapView.delegate = self
@@ -82,12 +53,25 @@ class ViewController: UIViewController {
             }
             
             user.location = locationManager.location
-            myTrailsCount.text = "\(user.myTrails.count)"
-            Crumb.fetchCrumbsWithinRegionFromSouthwest(mapView.southwestGeoPoint(), toNortheast: mapView.northeastGeoPoint()) {
+            Crumb.allWithinRegionFromSouthwest(mapView.southwestGeoPoint(), toNortheast: mapView.northeastGeoPoint()) {
                 self.plottedCrumbs = $0.crumbs
                 self.mapView.addAnnotations($0.crumbs)
             }
         }
+    }
+    
+    @IBOutlet weak var newCrumbButton: UIButton! {
+        didSet {
+            let finalYPosition = newCrumbButton.center.y
+            newCrumbButton.center.y += 150
+            UIView.animateWithDuration(0.8, delay: 2, options: .CurveEaseOut, animations: {
+                self.newCrumbButton.center.y = finalYPosition
+            }, completion: nil)
+        }
+    }
+    
+    @IBAction func didTapNewCrumbButton(sender: AnyObject) {
+        println("########## New Crumb!")
     }
 }
 
@@ -134,6 +118,14 @@ extension ViewController : MKMapViewDelegate {
         }
         return nil
     }
+    
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        println("########## selected!")
+    }
+    
+    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+        println("########## deselected")
+    }
 
     // Fade in crumbs when added to the map
     func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
@@ -149,7 +141,7 @@ extension ViewController : MKMapViewDelegate {
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
         mapView.removeNonVisibleAnnotations()
         
-        Crumb.fetchCrumbsWithinRegionFromSouthwest(mapView.southwestGeoPoint(), toNortheast: mapView.northeastGeoPoint()) {
+        Crumb.allWithinRegionFromSouthwest(mapView.southwestGeoPoint(), toNortheast: mapView.northeastGeoPoint()) {
             self.plottedCrumbs = $0.crumbs
             self.mapView.addAnnotations($0.crumbs)
         }
@@ -167,8 +159,7 @@ extension ViewController : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations entries: [AnyObject]!) {
         let locations = entries as! [CLLocation]
-        currentLat.text = "\(locations.last?.coordinate.latitude)"
-        currentLng.text = "\(locations.last?.coordinate.longitude)"
+        println("####### last updated location: \(locations.last)")
     }
 }
 

@@ -8,6 +8,7 @@ class Crumb : PFObject, PFSubclassing {
     @NSManaged var trail : Trail
     @NSManaged var location : PFGeoPoint
     @NSManaged var message : String
+    @NSManaged var maxViews : Int
     
     static func parseClassName() -> String {
         return "Crumb"
@@ -23,7 +24,7 @@ class Crumb : PFObject, PFSubclassing {
 }
 
 extension Crumb {
-    class func fetchCrumbsWithinRegionFromSouthwest(southwest: PFGeoPoint, toNortheast northeast: PFGeoPoint,  block : CrumbsBlock) {
+    class func allWithinRegionFromSouthwest(southwest: PFGeoPoint, toNortheast northeast: PFGeoPoint,  block : CrumbsBlock) {
         let nearbyCrumbsQuery = Crumb.query()!.includeKey("owner").includeKey("trail").whereKey("location", withinGeoBoxFromSouthwest: southwest, toNortheast: northeast)
         nearbyCrumbsQuery.findObjectsInBackgroundWithBlock {
             if let crumbs = $0.0 as? [Crumb] {

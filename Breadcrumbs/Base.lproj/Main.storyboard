@@ -4,18 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="FrutigerLTStd-Bold.otf">
-            <string>FrutigerLTStd-Bold</string>
-            <string>FrutigerLTStd-Bold</string>
-            <string>FrutigerLTStd-Bold</string>
-        </mutableArray>
-        <mutableArray key="FrutigerLTStd-Roman.otf">
-            <string>FrutigerLTStd-Roman</string>
-            <string>FrutigerLTStd-Roman</string>
-            <string>FrutigerLTStd-Roman</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -32,122 +20,40 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="q77-VU-xlG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
-                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJq-q5-045" userLabel="Scores">
-                                <rect key="frame" x="16" y="550" width="568" height="35"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Crumbz: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYz-uy-krT">
-                                        <rect key="frame" x="8" y="7" width="73" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="N0E-Hl-MnC"/>
-                                            <constraint firstAttribute="height" constant="21" id="Yr2-0Y-3q5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrutigerLTStd-Roman" family="Frutiger LT Std" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-i5-2Fb">
-                                        <rect key="frame" x="81" y="7" width="73" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="0CQ-Zg-JMx"/>
-                                            <constraint firstAttribute="width" constant="73" id="sKf-hf-jgr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrutigerLTStd-Bold" family="Frutiger LT Std" pointSize="12"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01p-aa-cwl">
+                                <rect key="frame" x="272.5" y="542" width="55" height="50"/>
                                 <constraints>
-                                    <constraint firstItem="bYe-i5-2Fb" firstAttribute="leading" secondItem="bYz-uy-krT" secondAttribute="trailing" id="VGD-qi-hak"/>
-                                    <constraint firstAttribute="height" constant="35" id="cdo-3L-CiA"/>
-                                    <constraint firstItem="bYz-uy-krT" firstAttribute="leading" secondItem="GJq-q5-045" secondAttribute="leading" constant="8" id="khe-nY-Ies"/>
-                                    <constraint firstAttribute="centerY" secondItem="bYe-i5-2Fb" secondAttribute="centerY" id="nC5-fh-ouS"/>
-                                    <constraint firstAttribute="centerY" secondItem="bYz-uy-krT" secondAttribute="centerY" id="paf-LY-rSv"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vyj-WV-5u8"/>
+                                    <constraint firstAttribute="width" constant="55" id="d5X-ig-Onw"/>
                                 </constraints>
-                            </view>
-                            <view alpha="0.69999998807907104" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPo-N2-s8K" userLabel="Location">
-                                <rect key="frame" x="18" y="504" width="568" height="35"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lat:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgM-oC-Q2l">
-                                        <rect key="frame" x="8" y="7" width="25" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="pID-6a-klE"/>
-                                            <constraint firstAttribute="width" constant="25" id="qJ6-1D-D6B"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrutigerLTStd-Roman" family="Frutiger LT Std" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lng:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8i-g2-aFC">
-                                        <rect key="frame" x="117" y="7" width="25" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="2k5-LY-33J"/>
-                                            <constraint firstAttribute="height" constant="21" id="LgS-tr-KcK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrutigerLTStd-Roman" family="Frutiger LT Std" pointSize="12"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOL-1D-Usc" userLabel="Lat Value">
-                                        <rect key="frame" x="36" y="6" width="73" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="E6A-nV-wr1"/>
-                                            <constraint firstAttribute="height" constant="21" id="wQb-cX-dYo"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrutigerLTStd-Bold" family="Frutiger LT Std" pointSize="12"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCl-fK-ZH9" userLabel="Lng Value">
-                                        <rect key="frame" x="150" y="6" width="73" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="FIE-cs-7fq"/>
-                                            <constraint firstAttribute="height" constant="21" id="WKa-Ep-h3k"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrutigerLTStd-Bold" family="Frutiger LT Std" pointSize="12"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="sgM-oC-Q2l" secondAttribute="centerY" id="2ko-U0-LyM"/>
-                                    <constraint firstAttribute="centerY" secondItem="EOL-1D-Usc" secondAttribute="centerY" constant="1" id="MOL-cE-HGT"/>
-                                    <constraint firstItem="EOL-1D-Usc" firstAttribute="leading" secondItem="sgM-oC-Q2l" secondAttribute="trailing" constant="3" id="SqS-DA-mUj"/>
-                                    <constraint firstAttribute="centerY" secondItem="bCl-fK-ZH9" secondAttribute="centerY" constant="1" id="YQm-rU-t2Y"/>
-                                    <constraint firstItem="f8i-g2-aFC" firstAttribute="leading" secondItem="EOL-1D-Usc" secondAttribute="trailing" constant="8" id="eWw-fM-hbP"/>
-                                    <constraint firstAttribute="centerY" secondItem="f8i-g2-aFC" secondAttribute="centerY" id="hfe-jJ-vcs"/>
-                                    <constraint firstItem="bCl-fK-ZH9" firstAttribute="leading" secondItem="f8i-g2-aFC" secondAttribute="trailing" constant="8" id="kqE-gl-XBj"/>
-                                    <constraint firstItem="sgM-oC-Q2l" firstAttribute="leading" secondItem="oPo-N2-s8K" secondAttribute="leading" constant="8" id="lWG-jV-JUl"/>
-                                    <constraint firstAttribute="height" constant="35" id="sy2-mJ-cGI"/>
-                                </constraints>
-                            </view>
+                                <state key="normal" image="present-button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapNewCrumbButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fe8-g6-MiS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GJq-q5-045" secondAttribute="bottom" constant="15" id="1sW-kc-SwQ"/>
-                            <constraint firstItem="oPo-N2-s8K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="51h-6z-nlT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GJq-q5-045" secondAttribute="trailing" id="8MV-YS-Vuq"/>
-                            <constraint firstItem="GJq-q5-045" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9Tv-UT-yXj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q77-VU-xlG" secondAttribute="trailing" constant="-16" id="BIs-9Q-2hJ"/>
                             <constraint firstItem="q77-VU-xlG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="OWk-V4-pHe"/>
+                            <constraint firstAttribute="centerX" secondItem="01p-aa-cwl" secondAttribute="centerX" id="VSy-z6-pFB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="q77-VU-xlG" secondAttribute="bottom" id="dbE-Sy-D98"/>
-                            <constraint firstItem="GJq-q5-045" firstAttribute="top" secondItem="oPo-N2-s8K" secondAttribute="bottom" constant="8" id="eKl-2o-X16"/>
-                            <constraint firstItem="oPo-N2-s8K" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kRW-OQ-2xL"/>
                             <constraint firstItem="q77-VU-xlG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="kb1-5I-mVu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="01p-aa-cwl" secondAttribute="bottom" constant="8" id="l7l-uL-4yA"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentLat" destination="EOL-1D-Usc" id="8hF-bC-OSe"/>
-                        <outlet property="currentLng" destination="bCl-fK-ZH9" id="Zl1-wh-cZF"/>
-                        <outlet property="locationView" destination="oPo-N2-s8K" id="88Y-65-ekF"/>
                         <outlet property="mapView" destination="q77-VU-xlG" id="NPa-K1-LHT"/>
-                        <outlet property="myTrailsCount" destination="bYe-i5-2Fb" id="HOf-74-5bL"/>
-                        <outlet property="scoresView" destination="GJq-q5-045" id="eMY-wm-ooU"/>
+                        <outlet property="newCrumbButton" destination="01p-aa-cwl" id="WZx-e5-rAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="present-button" width="80" height="80"/>
+    </resources>
 </document>

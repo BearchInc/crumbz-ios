@@ -6,8 +6,6 @@ typealias TrailsBlock = (trails : [Trail], error : NSError?) -> Void
 typealias CrumbsBlock = (crumbs : [Crumb], error : NSError?) -> Void
 
 class User : PFUser, PFSubclassing {
-    let UserRange = 1.0 // kilometer
-    
     var location : CLLocation!
 
     @NSManaged var tagline : String
